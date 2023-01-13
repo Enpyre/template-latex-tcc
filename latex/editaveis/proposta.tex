@@ -1,0 +1,45 @@
+\chapter*[Proposta]{Proposta}
+\addcontentsline{toc}{chapter}{Proposta}
+
+O presente capítulo exibe a proposta de solução para os problemas relacionados ao ensino e aprendizado
+de programação, esclarecendo os aspectos principais que se deseja na ferramenta a ser construída.
+
+\section{Visão Preliminar}
+
+Com base nas dificuldades levantadas durante a concepção deste projeto, percebe-se uma carência de ferramentas que promovam o ensino de programação e que visem a diminuição de obstáculos comuns ao aprendizado tradicional. Tendo isto em vista, propõe-se a elaboração de um software que apresente elementos dinâmicos, interface simples, que seja de fácil distribuição e que ofereça interação com uma linguagem de programação que propicie o aprendizado.
+
+\section{A Linguagem de Programação}
+
+Como já mencionado, uma das barreiras no aprendizado de programação é a sintaxe da linguagem escolhida. \citeauthor{stefik2013} (\citeyear{stefik2013}) concluiu em sua investigação empírica sobre sintaxes de linguagem de programação que linguagens com sintaxe derivada ou semelhante a C, como C++ e Java, podem apresentar aspectos que dificultam o aprendizado de novos programadores, como a necessidade de inicializar e delcarar o tipo de variáveis, necessidade de se usar chaves, ponto e vírgula e expressões verbosas \cite{mannila2006}.
+
+Python é uma linguagem de programação que abandonou as familiaridades de sintaxe com C \cite{stefik2013}, optando por usar a indentação ao invés de chaves para delimitar blocos de código. Python também foi alvo de um estudo por \citeauthor{jayal2015} (\citeyear{jayal2015}) acerca de seu uso no ensino de programação introdutória, onde se concluiu que houveram melhores resultados no aprendizado quando os conceitos introdutórios (fluxos de controle e uso de bibliotecas, por exemplo) foram ensinados com Python, em comparação ao Java.
+
+Python é uma linguagem de programação criada por Guido Van Rossum no início da década de 90, e o nome vem do fato do seu criador ser fã da série britânica Monty Python \cite{moraispires2002}. É uma linguagem de alto nível e orientada a objetos, assim como Java. Foi criada por Guido para ser uma linguagem de mais alto nível que o C, e mais poderosa do que as linguagens de shell scripting \cite{moraispires2002}.
+	
+O Python adotou a indentação como elemento de sintaxe, o que torna os programas mais legíveis e fáceis de compreender. Além disso, é multiplataforma, possuindo suporte para sistemas como Windows, Linux, MacOS, etc; e possui módulos prontos em sua biblioteca principal para realização de várias tarefas comuns de programação \cite{moraispires2002}.
+
+De acordo com \citeauthor{fangohr2004} (\citeyear{fangohr2004}), esta linguagem é indicada para disciplinas introdutórias e seu ambiente auxilia no aprendizado prático, seja na modalidade à distância ou em laboratórios. 
+
+Por estas razões, Python é a linguagem de programação de escolha para o presente projeto.
+
+\section{A Distribuição do Software}
+
+Com o propósito de reduzir as dificuldades associadas com o preparo do ambiente de desenvolvimento, é desejável que a ferramenta proposta possua o mínimo de dependências possível, e que seja compatível com qualquer sistema operacional. Uma forma de se atingir este objetivo é usar uma solução que seja executada à partir do navegador.
+
+A distribuição padrão do Python, conhecida como CPython, é implementada em C, e não roda nativamente no navegador. Existem poucas soluções que viabilizem isso, sendo o WebAssembly a mais completa. Trata-se de um padrão que define um formato de código binário de baixo nível capaz de ser executado à partir de um navegador. É possível compilar o interpretador de Python para WebAssembly, tornando possível sua execução em ambiente Web.
+
+No entanto, existem vários desafios de integração entre o código do interpretador e o ambiente do navegador, e por isso não basta uma simples recompilação. O projeto Pyodide não só prepara a compilação do interpretador do Python, como também tem uma série de funções para integrar melhor os dois ambientes e promover contexto compartilhado entre Python e JavaScript.
+
+Buscou-se então uma biblioteca JavaScript capaz de desenhar em um canvas com HTML5. Dentre as opções, escolheu-se o PixiJS. O objetivo passou a ser invocar o PixiJS à partir de código Python, de modo que o estudante pudesse desenhar formas geométricas, linhas e vértices com linhas de código simples.
+
+\section{Prova de Conceito}
+
+Para garantir a viabilidade da solução imaginada, criou-se uma aplicação web simplificada que faz uso do Pyodide e do PixiJS. Seu objetivo era o de oferecer um editor de texto integrado, com o qual o usuário pudesse executar código python e interagir com a aplicação resultante. A aplicação permitiu o desenho de figuras geométricas de tamanhos e cores variadas dentro de um canvas.
+
+O design da aplicação não foi uma preocupação, uma vez que seu principal objetivo era o de comprovar a viabilidade.
+
+\section{Considerações Finais do Capítulo}
+
+Este capítulo abordou o conceito da proposta, definindo suas características desejadas e seu nome,
+bem como justificando as escolhas tomadas até então. O capítulo também informou acerca da criação
+de uma aplicação de Prova de Conceito, na tentativa de verificar a viabilidade da proposta.
