@@ -6,11 +6,11 @@
 % Referencial Tecnológico da Prova de Conceito
 %
 
-\chapter[Referencial Tecnológico da Prova de Conceito]{Referencial Tecnológico da Prova de Conceito}
+\chapter[Referencial Tecnológico da PoC]{Referencial Tecnológico da PoC}
 \label{apendice:referencial_tecnologico_poc}
 
 O presente capítulo lista as tecnologias escolhidas ou envolvidas na criação da ferramenta.
-da ferramenta Pyon. Para as ferramentas de escolha, são apresentadas suas definições, suas vantagens e 
+da ferramenta Pyon. Para as ferramentas de escolha, são apresentadas suas definições, suas vantagens e
 suas limitações. Para as tecnologias associadas ao projeto por consequência, são apresentadas suas
 definições.
 
@@ -101,11 +101,6 @@ com aceleração de hardware.
 
 \end{itemize}
 
-\section{Considerações Finais do Capítulo}
-
-O presente capítulo listou as tecnologias em uso pela Prova de Conceito do Pyon, expondo tanto as bibliotecas
-escolhidas para comporem sua estrutura principal (PixiJS, Pyodie), bem como as tecnologias usadas por elas.
-
 %
 % Arquitetura da Prova de Conceito
 %
@@ -139,10 +134,10 @@ Representa a comunicação entre as sub-camadas HTML, JavaScript e Python. Com o
 
 \subsubsection{Camada HTML}
 
-Representa a comunicação entre dois principais componentes HTML Canvas e DOM. 
+Representa a comunicação entre dois principais componentes HTML Canvas e DOM.
 
 \begin{itemize}
-    \item \textbf{HTML Canvas:} responsável por possibilitar a rendenização de objetos 2D na DOM. 
+    \item \textbf{HTML Canvas:} responsável por possibilitar a rendenização de objetos 2D na DOM.
     \item \textbf{DOM:} responsável por representar os objetos e captura de interações do usuário.
 \end{itemize}
 
@@ -162,7 +157,7 @@ Representa a comunicação da engine Pyon na camada JavaScript.
 
 \subsubsection{Pacote PyonPy}
 
-Representa a comunicação da engine Pyon na camada Python. Todo o código do usuário vai interagir com esta camada, e não com o JavaScript. 
+Representa a comunicação da engine Pyon na camada Python. Todo o código do usuário vai interagir com esta camada, e não com o JavaScript.
 
 \begin{itemize}
     \item \textbf{Graphics:} Interface de comunicação entre a engine e o Graphics da camada de JavaScript.
@@ -189,11 +184,11 @@ O presente capítulo exibe os resultados obtidos após a concepção da Prova de
 
 \section{Aparencia}
 
-A Figura \ref{fig:code} exibe um navegador aberto e dois elementos principais: um canvas, acima, contendo a saída do programa; e um editor de texto, abaixo, contendo o código escrito pelo usuário. O resultado do programa permite que o usuário interaja com o círculo desenhado, usando as teclas direcionais para alterar a direção em que a bola se move. 
+A Figura \ref{fig:code} exibe um navegador aberto e dois elementos principais: um canvas, acima, contendo a saída do programa; e um editor de texto, abaixo, contendo o código escrito pelo usuário. O resultado do programa permite que o usuário interaja com o círculo desenhado, usando as teclas direcionais para alterar a direção em que a bola se move.
 
 \section{Nome da Ferramenta: Pyon}
 
-O nome Pyon teve a origem descrita a seguir. Primeiro, pensou-se na ferramenta como um "motor" 
+O nome Pyon teve a origem descrita a seguir. Primeiro, pensou-se na ferramenta como um "motor"
 (\textit{engine}, em inglês) de jogos escrito em Python. Este conceito foi alterado no princípio do trabalho, mas por sua razão adotou-se o nome provisório \textbf{Pyengine}.
 
 Posteriormente, quando se consolidou o uso da biblioteca Pyodide, o nome provisório foi alterado para
@@ -217,12 +212,8 @@ Foi possível desenhar círculos coloridos no Canvas à partir de código Python
     \item O código Python então é interpretado pelo Pyodide, e executado em seguida.
     \item A execução do código Python inclui o download, via gerenciador de pacotes do Python (pip), do módulo PyonPy.
     \item As funções constantes neste módulo são capazes de acessar, graças ao Pyodide, a interface
-    document do JavaScript. 
+    document do JavaScript.
     \item Através desta interface, as funções do PixiJS podem ser executadas. E finalmente, pode-se desenhar gráficos 2D no Canvas do DOM. As funções da parte Python do módulo Pyon expõe estas funcionalidades de uma maneira conveniente.
 \end{enumerate}
-
-\section{Considerações Finais do Capítulo}
-Este capítulo confirmou a viabilidade da Prova de Conceito do Pyon, e relatou a ordem de execução 
-de um comando Python realizado no editor de texto integrado.
 
 \end{apendicesenv}
