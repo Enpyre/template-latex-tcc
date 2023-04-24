@@ -76,33 +76,89 @@ Em resumo, a definição de escopo e requisitos é importante para garantir que 
 
 \subsection{Definição de Escopo}
 
-Para a definição de escopo do projeto, foi realizada uma reunião com o professor orientador, onde foram discutidos os requisitos do projeto, e o escopo do projeto foi definido. O escopo do projeto inclui a criação de uma plataforma web para o ensino de Python com recursos interativos e lúdicos. A plataforma deve ser capaz de oferecer um ambiente de aprendizado para os alunos, com a possibilidade de criar e compartilhar projetos, e também deve ser capaz de oferecer um ambiente de ensino para os professores, com a possibilidade de criar e compartilhar aulas.
+Para a definição de escopo do projeto, foi realizada uma pesquisa com os alunos da UnB, que foram convidados a responder um questionário sobre suas experiências com o aprendizado de Python. Os resultados da pesquisa foram usados para definir o escopo do projeto, e também para definir os requisitos do projeto.
+
+\subsubsection{Pesquisa com Alunos da UnB}
+
+A pesquisa consistiu de duas perguntas, que foram respondidas por 22 alunos. A primeira pergunta perguntava quais eram as maiores dificuldades que os alunos encontraram ao aprender Python, e a segunda pergunta perguntava quais recursos ou características eles acreditavam que uma ferramenta de ensino de Python deve ter para ser eficaz. Os resultados da pesquisa estão apresentados na Tabela \ref{tab:pesquisa}.
+
+\begin{longtable}{| p{.45\textwidth} | p{.45\textwidth} |}
+    \hline
+    \textbf{Quais são as maiores dificuldades que você encontrou ao aprender Python?} & \textbf{Quais recursos ou características você acredita que uma ferramenta de ensino de Python deve ter para ser eficaz?} \\ \hline
+    Encontrar algumas bibliotecas não muito conhecidas ainda, além de suas documentações / orientações & "Integrações nativas com bibliotecas já conhecidas de Python, facilitando automações (Como por exemplo o Jupyter). \\ \hline
+    Seria muito bom se houvesse mais conteúdo sobre webscrapping com python em páginas dinâmicas (que sempre atualizam seus resultados) e as devidas ferramentas facilitadoras para o aprendizado do mesmo, mostrando texto e imagens de como foi feito em algum outro lugar." & Uma trilha real de um back-end. Ensinando os conceitos iniciais até o deploy. \\ \hline
+    Saber o que cada método faz, especificamente, e também, por onde começar um projeto: lib que usar e etc & Ter uma interface simples;  Recompensas por atividades resolvidas (exercicios); Vídeos curtos e objetivos; Ranking entre os alunos que está mandando bem; Dica ou trechos de livros para explicar aquele problema que foi proposto. \\ \hline
+    Foi em entender a programar de forma Pythonic & Talvez auto-identação no começo seja interessante pra quem veio de linguagens com escrita parecida ao C \\ \hline
+    Decorators, self, **kwargs. Não entendia bem como vinha informação desses caras, se não era objeto, não era passado por parametro, não tinha um super, me deu uma bugada legal na época & Acredito que recurso da visibilidade de um input virando um output e cases relacionados. Exemplo, supondo a função soma em que dois valores são somados, não somente os inputs e os outputs mas como a linguagem “enxerga” isso e entrega o valor. A partir disso, levantar pontos sobre “o que e um número” “o que e uma soma” “como a máquina enxerga isso” até a apresentação do dado. \\ \hline
+    Quando chegou a parte de orientação a objeto e sempre tentar manter o código “pythonico” uma vez que a linguagem pede pra não termos códigos muito grandes, repetitivos e sem padrões & Exemplos claros e funcionais e balões de dicas quando se está indo para o caminho inverso \\ \hline
+    Colocar em prática códigos funcionais de forma lógica & Plataforma de dúvidas remota e online, e exercícios de prática resolvidos passo a passo de diversas maneiras para que se possa estudar e analisar as diversas formas de chegar em um mesmo resultado \\ \hline
+    Entraves psicológicos criados durante a graduação em relação a programação. Infelizmente, cheguei na faculdade sem saber nada e não tive suporte, além de um péssimo professor que aplicava medo e não ensinava direito & Acho que a prática. É sempre muito bom quando a gente vê um comando e em seguida implementamos ele de uma maneira meio que criativa. Tipo, ao mostrar como funciona um loop, seria legal tem um espaço pra praticar um loop podendo colocar outros comandos dentro dele. \\ \hline
+    Acredito que por ter um background com outras linguagens, aprender python foi muito simples. & Aprofundamento em cada assunto \\ \hline
+    Acho que a maneira com que a linguagem é apresentada pros calouros é de uma maneira bastante equivocada. & Exercícios de prática \\ \hline
+    Lembrar de todos os comandos e suas aplicações & Praticidade, linguagem simples e de fácil acesso ao usuário \\ \hline
+    Memorizar funções específicas, por exemplo a função de limitar a quantidade de dígitos decimais de uma variável. & Uma documentação simples, clara e direta, que explique de maneira concisa a forma mais eficiente de se resolver um problema proposto. \\ \hline
+    Sinceramente, eu acredito que Python seja uma das linguagens de programação mais simples de estudar. No entanto, até o momento, tenho dificuldade em entender funções recursivas e funções anônimas (lambda). & Deve ter a presença de prática a cada conceito novo introduzido, por mais ínfimo que seja ele. No aprendizado é importante dominar o simples pra poder passar pro avançado. Um grande erros de vários professores, por exemplo, é apresentar (em aulas longuíssimas e maçantes puramente teóricas com slides infinitos, etc...) e cobrar assuntos avançados e mais complexos sem que os alunos tenham dominado plenamente os conceitos prévios que são mais básicos, simples e necessários para compreender os mais avançados.  De acordo com vários estudos pedagógicos, o aprendizado ativo (prática propriamente dita) é a melhor forma de reter o conhecimento, então a prática a cada conceito novo precisa ser frequente e constante na plataforma. \\ \hline
+    A dificuldade de encontrar aulas rápidas objetivas que vão direto ao ponto sem enrolação & A melhor ferramenta, para o ensino de qualquer coisa, se chama, 'um bom professorª'. Outras coisas, como IDE, computador tal, são acessórios. Aliás, falando em acessórios, um SSD, é algo muito bom. \\ \hline
+    "Independente da linguagem, acho que uma de minhas maiores dificuldades, foi na 'memorização' dos códigos. Não que, memorizar a sintaxe da linguagem, seja exigido pelo mercado de trabalho. Mas, na disciplina de APC, por exemplo, nas provas, não era permitido consulta. Então, de certa forma, os alunos precisavam ter, parte da linguagem memorizada, no caso Python. & Debugger \\ \hline
+    Além disso, eu mesmo, nunca gostei me memorizar nada. Sempre achei, que o importante, é a pessoa ser capaz, de processar a informação, seja ela qual for. Decorar e repetir, até papagaio faz! & Explicar passo a passo os comandos e não só lotar os alunos de comando sem explicar direito cada um \\ \hline
+    Eu sempre gostei, de ver os resultados dos meus estudos, aplicados no mundo real. Depois de APC, os alunos pegam uma disciplina, chamada ED(Estrutura de Dados). A maioria dos alunos, nunca fizeram um CRUD na vida, uma página com HTML/CSS, JavaScript ou qualquer outra coisa prática com programação. Se deixar, os alunos saem do curso, sem estarem preparados pro mercado de trabalho. É lógico que a base que a universidade dá, é importante, eu só acho que falta um pouco mais de equilíbrio, entre teoria e prática. O mesmo equilíbrio é necessário em outras disciplinas, por exemplo, as de matemática." & Ajudar com a lógica de programação (inclusive loops e condições),  apontar erros de sintaxe, auxiliar no básico da linguagem como variáveis e tipos básicos \\ \hline
+    Abstração & projetos práticos \\ \hline
+    Algumas expressões que não são tão auto explicativas e pra saber colocar elas do jeito certinho para o código rodar & Ensinar lógica computacional antes de qualquer coisa, ter um ambiente simples e intuitivo, exercícios práticos e conectado com o cotidiano. \\ \hline
+    Achei uma linguagem bem tranquila! A sintaxe não é tão detalhista quanto em outras linguagens, e a parada da indentação ajuda bastante a visualizar o código e a execução. As mensagens de erro também são mais concisas e claras & Didática, eficiência, facilidade \\ \hline
+    colocar a mão na massa, aprender é fácil, o problema é a prática & ~ \\ \hline
+    Não saber lógica computacional, decorar a sintaxe, fazer exercícios desconectados da realidade, não saber usar a documentação. & ~ \\ \hline
+    Professora não se importava com todos, só com quem já sabia a linguagem. No primeiro dia de aula lembro que foi dito que não era necessário saber nada de programação, que todos avançariam igualmente mas é a maior mentira pregada, se você não saber pelo menos o básico você se roda, as dificuldades não são sanadas, as dúvidas comuns não eram levadas a sério. Enfim, só provando mais a ainda o elitismo da unb e as altas taxas de evasão dos cursos de TI de lá. & ~ \\ \hline
+    \caption{Pesquisa de dificuldades e características de ferramentas no aprendizado de Python}
+    \label{tab:pesquisa}
+\end{longtable}
+
+\subsubsection{Nuvem de palavras dos resultados da pesquisa}
+
+Abaixo é apresentado uma nuvem de palavras com as respostas da primeira pergunta da pesquisa, que foi: \textit{Quais são as principais dificuldades que você teve ao aprender Python?}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figuras/nuvem_dificuldades.eps}
+    \caption{Nuvem de palavras dos resultados da pesquisa}
+    \label{nuvem_dificuldades}
+\end{figure}
+
+Abaindo é apresentado uma nuvem de palavras com as respostas da segunda pergunta da pesquisa, que foi: \textit{Quais são as principais dificuldades que você teve ao aprender Python?}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figuras/nuvem_ferramentas.eps}
+    \caption{Nuvem de palavras dos resultados da pesquisa}
+    \label{nuvem_ferramentas}
+\end{figure}
 
 \subsection{Definição de Requisitos}
 
-Os requisitos do projeto foram definidos com base nas necessidades do cliente e usuário final, e também com base nas restrições do projeto. Os requisitos do projeto incluem:
+Os requisitos do projeto foram definidos com base nas necessidades identificadas na pesquisa. Os requisitos foram divididos em funcionais e não funcionais, e foram priorizados de acordo com a sua importância para o projeto.
+
+\subsubsection{Requisitos Funcionais}
 
 \begin{itemize}
-    \item Criação de projetos: a plataforma deve permitir que os alunos criem e compartilhem projetos em Python.
-    \item Criação de aulas: a plataforma deve permitir que os professores criem e compartilhem aulas em Python.
-    \item Ambiente de aprendizado interativo: a plataforma deve oferecer um ambiente de aprendizado interativo e lúdico para os alunos, com recursos como quizzes e desafios para ajudar a fixar o conteúdo.
-    \item Gerenciamento de conteúdo: a plataforma deve permitir que os professores gerencie e atualize as aulas e projetos criados.
-    \item Comunicação entre alunos e professores: a plataforma deve permitir a comunicação entre alunos e professores, como fóruns de discussão, chats e comentários.
-    \item Análise de desempenho: a plataforma deve fornecer relatórios e gráficos para acompanhar o progresso dos alunos e identificar áreas de melhoria, e também deve permitir que os professores acompanhem o desempenho de seus alunos.
-    \item Responsividade e acessibilidade: a plataforma deve ser projetada para funcionar em diferentes e navegadores, e deve seguir as normas de acessibilidade para garantir que seja acessível para todos os usuários.
-    \item Segurança: a plataforma deve ser segura, com criptografia de dados e autenticação de usuários.
+    \item RF01 - Criação de conta: a plataforma deve permitir que os alunos criem uma conta para acessar os recursos da plataforma.
+    \item RF02 - Visualização de projetos: a plataforma deve permitir que os alunos visualizem os projetos disponíveis na plataforma.
+    \item RF03 - Execução de projetos: a plataforma deve permitir que os alunos executem os projetos disponíveis na plataforma.
+    \item RF04 - Criação de projetos: a plataforma deve permitir que os alunos criem seus próprios projetos.
+    \item RF05 - Visualização de quizzes: a plataforma deve permitir que os alunos visualizem os quizzes disponíveis na plataforma.
+    \item RF06 - Submissão de quizzes: a plataforma deve permitir que os alunos submetam suas respostas para os quizzes disponíveis na plataforma.
+    \item RF07 - Visualização de desafios: a plataforma deve permitir que os alunos visualizem os desafios disponíveis na plataforma.
+    \item RF08 - Pontuação: ao criar um projeto ou submeter um quiz, o aluno deve receber uma pontuação.
+    \item RF09 - Ranking: a plataforma deve permitir que os alunos visualizem um ranking com os usuários com mais pontos.
 \end{itemize}
 
-\subsubsection{Priorização dos Requisitos}
-
-Os requisitos do projeto foram priorizados com base no impacto ao usuário final através da regra de Pareto, que afirma que 80\% do valor de um produto ou serviço é gerado por 20\% dos seus recursos. \cite{Xavier2009}
-
-Esse projeto foi desenvolvido com base nos 20\% dos requisitos que geram 80\% do valor para o usuário final, ficando os outros 80\% dos requisitos como débitos técnicos. Os requisitos prioritários são:
+\subsubsection{Requisitos Não Funcionais}
 
 \begin{itemize}
-    \item Criação de projetos: a plataforma deve permitir que os alunos criem e compartilhem projetos em Python.
-    \item Ambiente de aprendizado interativo: a plataforma deve oferecer um ambiente de aprendizado interativo e lúdico para os alunos, com recursos como quizzes e desafios para ajudar a fixar o conteúdo.
-    \item Segurança: a plataforma deve ser segura, com criptografia de dados e autenticação de usuários.
+    \item RNF01 - Ambiente de aprendizado interativo: a plataforma deve oferecer um ambiente de aprendizado interativo e lúdico para os alunos, com a possibilidade de criação de jogos 2D.
+    \item RNF02 - Responsividade e acessibilidade: a plataforma deve ser projetada para funcionar em diferentes navegadores.
+    \item RNF03 - Segurança: a plataforma deve ser segura, com criptografia de dados e autenticação de usuários.
+    \item RNF04 - Escalabilidade: a plataforma deve ser escalável, suportando um grande número de usuários.
+    \item RNF05 - Manutenibilidade: a plataforma deve ser projetada para facilitar a manutenção e evolução do sistema.
+    \item RNF06 - Usabilidade: a plataforma deve ser projetada para ser intuitiva e fácil de usar.
 \end{itemize}
 
 \subsection{Prova de Conceito}
