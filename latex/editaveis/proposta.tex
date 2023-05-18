@@ -4,11 +4,9 @@
 
 O projeto consistiu em uma plataforma de aprendizado de programação em Python, com foco em iniciantes. A plataforma é composta por um conjunto de quizzes, desafios e projetos, que são utilizados para fixar o conteúdo aprendido. A plataforma também conta com um sistema de pontuação, que é utilizado para incentivar os usuários a realizarem os quizzes, desafios e projetos, além de compartilharem seus projetos com outros usuários. A plataforma também conta com um sistema de ranking, que é utilizado para mostrar aos usuários o desempenho deles em relação aos outros usuários.
 
-\section{Especificação de Requisitos}
+\section{Requisitos}
 
-\subsection{Requisitos Funcionais}
-
-Os requisitos funcionais do projeto são:
+Os requisitos funcionais da plataforma foram definidos com base nos objetivos do projeto, que são: ensinar programação em Python para iniciantes, de forma lúdica e interativa. Sendo que foram priorizados os requisitos de RF01 a RF09 para a primeira versão da plataforma. Os requisitos da plataforma são:
 
 \begin{itemize}
     \item RF01: Cadastro de usuários: o sistema deve permitir que os usuários se cadastrem na plataforma.
@@ -25,21 +23,6 @@ Os requisitos funcionais do projeto são:
     \item RF11: Visualização do perfil: o sistema deve permitir que os usuários visualizem seu perfil.
     \item RF12: Edição do perfil: o sistema deve permitir que os usuários editem seu perfil.
     \item RF13: Exclusão do perfil e dados: o sistema deve permitir que os usuários excluam seu perfil e dados.
-\end{itemize}
-
-\subsection{Requisitos Não-Funcionais}
-
-Os requisitos não-funcionais do projeto são:
-
-\begin{itemize}
-    \item RNF01: Login simples: o sistema deve permitir que os usuários façam login com apenas um clique.
-    \item RNF02: Cadastro simples: o sistema deve permitir que os usuários se cadastrem com apenas um clique.
-    \item RNF03: Disponibilidade: o sistema deve estar disponível 24 horas por dia, 7 dias por semana.
-    \item RNF04: Segurança: o sistema deve ser seguro, com criptografia de dados e autenticação de usuários.
-    \item RNF05: Usabilidade: o sistema deve ser fácil de usar, com uma interface simples e intuitiva.
-    \item RNF06: Escalabilidade: o sistema deve ser escalável, podendo ser facilmente adaptado para suportar um número maior de usuários.
-    \item RNF07: Portabilidade: o sistema deve ser inicialmente desenvolvido para rodar em navegadores web, mas deve ser facilmente adaptado para rodar em outros dispositivos.
-    \item RNF08: Qualidade: o sistema deve ser de alta qualidade, com ferramentas de analise de código e testes automatizados.
 \end{itemize}
 
 \section{A Distribuição do Software}
@@ -221,4 +204,24 @@ O repositório do trabalho está disponível em: https://github.com/Enpyre.
     \includegraphics[width=0.8\textwidth]{figuras/quizz.eps}
     \caption{Tela do quiz}
     \label{fig:quiz}
+\end{figure}
+
+\section{Métricas de Qualidade}
+
+Foi utilizado o \href{https://sonarcloud.io/projects}{SonarCloud} para realizar a análise estática de código e obter métricas de qualidade do código. As métricas finais obtidas podem ser vistas na imagem \ref{fig:sonarcloud}. A descrição das métricas de qualidade do código são apresentadas a seguir:
+
+\begin{itemize}
+    \item \textbf{\textit{Reliability}}: A métrica ``Reliability'' se refere à confiabilidade do código, ou seja, a capacidade do software em executar suas funcionalidades de forma consistente e livre de erros. Essa métrica avalia a estabilidade e robustez do código, medindo a probabilidade de ocorrência de falhas, erros de lógica, exceções não tratadas e comportamentos inesperados durante a execução do programa. É uma medida importante para garantir a qualidade do software, pois um código confiável é menos propenso a causar falhas e interrupções indesejadas.
+    \item \textbf{\textit{Maintainability}}: A métrica ``Maintainability'' se refere à manutenibilidade do código, ou seja, a facilidade com que o código pode ser mantido, modificado e aprimorado ao longo do tempo. Essa métrica avalia a qualidade do código em termos de legibilidade, modularidade, organização e documentação. Um código com alta manutenibilidade é mais fácil de entender, depurar, estender e adaptar a novos requisitos ou correções. Isso é fundamental para permitir que equipes de desenvolvimento trabalhem de forma eficiente e reduzir o risco de introdução de erros durante as atividades de manutenção e evolução do software.
+    \item \textbf{\textit{Security}}: A métrica ``Security'' se refere à segurança do código, ou seja, a capacidade do software em proteger dados sensíveis, prevenir vulnerabilidades e evitar ataques cibernéticos. Essa métrica avalia a robustez das medidas de segurança implementadas no código, como autenticação, autorização, criptografia e proteção contra ameaças conhecidas. Um código com alta segurança é menos suscetível a brechas de segurança e protege as informações confidenciais dos usuários e do sistema como um todo. Garantir a segurança do código é fundamental para evitar violações de segurança e proteger a integridade e privacidade dos dados.
+    \item \textbf{\textit{Security Review}}: A ``Security Review'' é uma avaliação de segurança realizada no código ou em um sistema de software. Ela envolve a revisão minuciosa do código-fonte, infraestrutura e configurações de segurança para identificar possíveis vulnerabilidades, brechas ou falhas de segurança. Durante a revisão de segurança, são aplicadas técnicas e ferramentas específicas para analisar o código em busca de problemas de segurança conhecidos, padrões inseguros de programação e configurações inadequadas. O objetivo é identificar e corrigir quaisquer pontos fracos que possam ser explorados por hackers ou representar riscos à segurança do sistema.
+    \item \textbf{\textit{Coverage}}: ``Coverage'' se refere à cobertura de código, uma métrica que mede a quantidade de código que foi exercitada por testes automatizados. Ela indica a porcentagem de linhas de código, ramificações condicionais ou funcionalidades que foram testadas pelo conjunto de testes. Quanto maior a cobertura, maior a confiança de que o código foi amplamente testado e que as diferentes partes do software estão funcionando corretamente. A cobertura de código é uma medida importante para avaliar a qualidade dos testes e a eficácia dos esforços de garantia de qualidade no desenvolvimento de software.
+    \item \textbf{\textit{Duplications}}: ``Duplications'' se refere a duplicações de código, ou seja, trechos de código que aparecem repetidamente em diferentes partes do software. Essas duplicações podem ocorrer por várias razões, como falta de modularização, cópia e colagem excessiva de código, ou falta de reutilização de componentes. Identificar e analisar duplicações de código é importante para a manutenibilidade e qualidade do software, pois elas podem levar a problemas como dificuldade na manutenção, inconsistências, propagação de bugs e aumento da complexidade do código. Ao eliminar duplicações, é possível melhorar a legibilidade, eficiência e facilidade de manutenção do código.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{figuras/sonarcloud.eps}
+    \caption{Métricas de qualidade do código}
+    \label{fig:sonarcloud}
 \end{figure}
