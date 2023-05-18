@@ -10,7 +10,7 @@
 \label{apendice:referencial_tecnologico_poc}
 
 O presente capítulo lista as tecnologias escolhidas ou envolvidas na criação da ferramenta.
-da ferramenta Pyon. Para as ferramentas de escolha, são apresentadas suas definições, suas vantagens e
+da ferramenta Enpyre. Para as ferramentas de escolha, são apresentadas suas definições, suas vantagens e
 suas limitações. Para as tecnologias associadas ao projeto por consequência, são apresentadas suas
 definições.
 
@@ -18,7 +18,7 @@ definições.
 
 \subsection{Definição}
 
-WebAssembly é um bytecode portátil de baixo nível para Web. É desenvolvido de modo a ser independente de hardware e plataforma. Com o WebAssembly, existe a possibilidade de se compilar código de diversas linguagens em código de baixo nível. Atualmente existe suporte para C, C++, Rust entre outros.
+\href{https://webassembly.org/}{WebAssembly} é um bytecode portátil de baixo nível para Web. É desenvolvido de modo a ser independente de hardware e plataforma. Com o WebAssembly, existe a possibilidade de se compilar código de diversas linguagens em código de baixo nível. Atualmente existe suporte para C, C++, Rust entre outros.
 
 O WebAssembly foi proposto de forma colaborativa por engenheiros de quatro grandes distribuidores de navegadores: Google, Microsoft, Mozilla e Apple. A implementação atual já é capaz de compilar uma quantidade grande de programas, mas existem ainda várias propostas em estudo para estender as funcionalidades da linguagem e a integração com JavaScript.
 
@@ -35,7 +35,7 @@ Dentre as limitações presentes no WebAssembly, está sua incapacidade de acess
 
 \subsection{Definição}
 
-O Pyodide é uma ferramenta que contém o interpretador do Python, em sua versão 3.9, sendo compilado para WebAssembly. Como resultado, é possível executar Python na Web, à partir de um navegador.
+O \href{https://pyodide.org/}{Pyodide} é uma ferramenta que contém o interpretador do Python, em sua versão 3.9, sendo compilado para WebAssembly. Como resultado, é possível executar Python na Web, à partir de um navegador.
 
 A ferramenta foi criada em 2018 por Michael Droettboom, desenvolvedor da Mozilla, inicialmente como parte do projeto Iodide. Este projeto propunha um ambiente de desenvolvimento baseado em navegadores, voltado para computação e programação científica e execução de notebooks do Jupyter. O projeto Iodide foi encerrado em Setembro de 2020, ainda podendo ser encontrado, mas não mais sendo mantido.
 
@@ -57,7 +57,7 @@ Além disso, não é possível trabalhar com multiprocessamento, threading ou so
 
 \subsection{Definição}
 
-O PixiJS é um sistema de renderização para Web que usa WebGL (ou Canvas, opcionalmente) para a exibição de conteúdo visual 2D.
+O \href{https://pixijs.com/}{PixiJS} é um sistema de renderização para Web que usa WebGL (ou Canvas, opcionalmente) para a exibição de conteúdo visual 2D.
 
 \subsection{Vantagens}
 
@@ -81,7 +81,7 @@ Trata-se de uma API que viabiliza o desenho de gráficos 2D à partir do JavaScr
 
 \subsubsection{WebGL API}
 
-Semelhante à Canvas API, a WebGL API permite o desenho de gráficos em um elemento ``canvas'' do HTML.
+Semelhante à \href{https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API}{Canvas API}, a \href{https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API}{WebGL API} permite o desenho de gráficos em um elemento ``canvas'' do HTML.
 Diferente da Canvas API, no entanto, os gráficos gerados pela WebGL API podem ser 2D e 3D, e contam
 com aceleração de hardware.
 
@@ -143,26 +143,22 @@ Representa a comunicação entre dois principais componentes HTML Canvas e DOM.
 
 \subsection{Camada JavaScript}
 
-\subsubsection{Pacote PyonJs}
-
-Representa a comunicação da engine Pyon na camada JavaScript.
+Representa a comunicação da Engine na camada JavaScript. \href{https://github.com/Enpyre/engine}{EnpyreJS}
 
 \begin{itemize}
     \item \textbf{Graphics:} Interface de comunicação entre a engine e o PixiJS, com suas funções disponibilizadas de forma global no Window.
     \item \textbf{Events:} Interface para monitoramento dos eventos de interação com a DOM, sendo o estado de cada evento atualizado de forma global no Window.
-    \item \textbf{Pyon:} Interface da engine onde seu propósito é compilar o código criado pelo aluno através da instância disponívei no Window do Pyodide.
+    \item \textbf{Enpyre:} Interface da engine onde seu propósito é compilar o código criado pelo aluno através da instância disponívei no Window do Pyodide.
 \end{itemize}
 
 \subsection{Camada Python}
 
-\subsubsection{Pacote PyonPy}
-
-Representa a comunicação da engine Pyon na camada Python. Todo o código do usuário vai interagir com esta camada, e não com o JavaScript.
+Representa a comunicação da engine na camada Python. Todo o código do usuário vai interagir com esta camada, e não com o JavaScript. \href{https://github.com/Enpyre/engine}{EnpyrePy}
 
 \begin{itemize}
     \item \textbf{Graphics:} Interface de comunicação entre a engine e o Graphics da camada de JavaScript.
     \item \textbf{Core:} Interface para monitoramento dos eventos de interação entre a engine e o Events da camada JavaScript.
-    \item \textbf{Pyon:} Interface que implementa atributos e funcionalidades que estarão disponíveis durante a execução do código recebido pelo PyonJS da camada JavaScript.
+    \item \textbf{Enpyre:} Interface que implementa atributos e funcionalidades que estarão disponíveis durante a execução do código recebido pelo Enpyre da camada JavaScript.
 \end{itemize}
 
 %
@@ -186,16 +182,17 @@ O presente capítulo exibe os resultados obtidos após a concepção da Prova de
 
 A Figura \ref{fig:code} exibe um navegador aberto e dois elementos principais: um canvas, acima, contendo a saída do programa; e um editor de texto, abaixo, contendo o código escrito pelo usuário. O resultado do programa permite que o usuário interaja com o círculo desenhado, usando as teclas direcionais para alterar a direção em que a bola se move.
 
-\section{Nome da Ferramenta: Pyon}
+\section{Nome da Ferramenta: Enpyre}
 
-O nome Pyon teve a origem descrita a seguir. Primeiro, pensou-se na ferramenta como um ``motor''
-(\textit{engine}, em inglês) de jogos escrito em Python. Este conceito foi alterado no princípio do trabalho, mas por sua razão adotou-se o nome provisório \textbf{Pyengine}.
+Inicialmente foi dado o nome Pyon, que teve a origem descrita a seguir. Primeiro, pensou-se na ferramenta como um ``motor'' (\textit{engine}, em inglês) de jogos escrito em Python. Este conceito foi alterado no princípio do trabalho, mas por sua razão adotou-se o nome provisório \textbf{Pyengine}.
 
 Posteriormente, quando se consolidou o uso da biblioteca Pyodide, o nome provisório foi alterado para
 \textbf{Pyongine}, uma mesca do nome anterior com o nome da biblioteca.
 
-Por fim, buscando-se simplificar o nome que se usava até então, reduziu-se Pyongine para \textbf{Pyon},
+Buscando-se simplificar o nome que se usava até então, reduziu-se Pyongine para \textbf{Pyon},
 acreditando-se que sua pronúncia fosse mais agradável.
+
+Por fim, o nome foi alterado para \textbf{Enpyre}, uma mescla de ``engine'', ``Python'' e ``React'' (a biblioteca JavaScript usada para construir a interface do usuário).
 
 \section{Estrutura Visual}
 
@@ -210,10 +207,10 @@ Foi possível desenhar círculos coloridos no Canvas à partir de código Python
 \begin{enumerate}
     \item O código Python é extraído do editor de texto via JavaScript.
     \item O código Python então é interpretado pelo Pyodide, e executado em seguida.
-    \item A execução do código Python inclui o download, via gerenciador de pacotes do Python (pip), do módulo PyonPy.
+    \item A execução do código Python inclui o download, via gerenciador de pacotes do Python (pip), do módulo Enpyre.
     \item As funções constantes neste módulo são capazes de acessar, graças ao Pyodide, a interface
     document do JavaScript.
-    \item Através desta interface, as funções do PixiJS podem ser executadas. E finalmente, pode-se desenhar gráficos 2D no Canvas do DOM. As funções da parte Python do módulo Pyon expõe estas funcionalidades de uma maneira conveniente.
+    \item Através desta interface, as funções do PixiJS podem ser executadas. E finalmente, pode-se desenhar gráficos 2D no Canvas do DOM. As funções da parte Python do módulo Enpyre expõe estas funcionalidades de uma maneira conveniente.
 \end{enumerate}
 
 \end{apendicesenv}
